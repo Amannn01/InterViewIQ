@@ -103,6 +103,7 @@ function Pricing() {
       setLoadingPlan(null);
     } catch (error) {
      console.log(error)
+     console.log("PAYMENT ERROR:", error.response?.data)  
      setLoadingPlan(null);
     }
   }
