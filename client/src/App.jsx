@@ -11,15 +11,17 @@ import InterviewHistory from './pages/InterviewHistory'
 import Pricing from './pages/Pricing'
 import InterviewReport from './pages/InterviewReport'
 
-export const ServerUrl  = "https://interviewiq-backend-c0da.onrender.com"
+export const ServerUrl = "https://interviewiq-backend-c0da.onrender.com"
 
 function App() {
 
   const dispatch = useDispatch()
-  useEffect(()=>{
+  useEffect(() => {
     const getUser = async () => {
       try {
-        const result = await axios.get(ServerUrl + "/api/user/current-user", {withCredentials:true})
+        const token = localStorage.getItem("token")
+        if (!token) return
+        const result = await axios.get(ServerUrl + "/api/user/current-user", { withCredentials: true })
         dispatch(setUserData(result.data))
       } catch (error) {
         console.log(error)
@@ -28,15 +30,15 @@ function App() {
     }
     getUser()
 
-  },[dispatch])
+  }, [dispatch])
   return (
     <Routes>
-      <Route path='/' element={<Home/>}/>
-      <Route path='/auth' element={<Auth/>}/>
-      <Route path='/interview' element={<InterviewPage/>}/>
-      <Route path='/history' element={<InterviewHistory/>}/>
-      <Route path='/pricing' element={<Pricing/>}/>
-      <Route path='/report/:id' element={<InterviewReport/>}/>
+      <Route path='/' element={<Home />} />
+      <Route path='/auth' element={<Auth />} />
+      <Route path='/interview' element={<InterviewPage />} />
+      <Route path='/history' element={<InterviewHistory />} />
+      <Route path='/pricing' element={<Pricing />} />
+      <Route path='/report/:id' element={<InterviewReport />} />
 
 
 

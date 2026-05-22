@@ -5,7 +5,8 @@ import { motion } from "motion/react"
 import { FcGoogle } from "react-icons/fc";
 import { signInWithPopup } from 'firebase/auth';
 import { auth, provider } from '../utils/firebase';
-import axios from 'axios';
+// import axios from 'axios';
+import axiosInstance from '../utils/axiosInstance';
 import { ServerUrl } from '../App';
 import { useDispatch } from 'react-redux';
 import { setUserData } from '../redux/userSlice';
@@ -16,9 +17,8 @@ function Auth({isModel = false}) {
         try {
             const response = await signInWithPopup(auth,provider)
             let User = response.user
-            let name = User.displayName
-            let email = User.email
-            const result = await axios.post(ServerUrl + "/api/auth/google" , {name , email} , {withCredentials:true})
+            const result = await axiosInstance.post(ServerUrl + "/api/auth/google" , {name: User.displayName, email: User.email} , {withCredentials:true})
+             localStorage.setItem("token", result.data.token)
             dispatch(setUserData(result.data))
         } catch (error) {
             console.log(error)
