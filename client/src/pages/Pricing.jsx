@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router-dom'
 import { motion } from "motion/react";
 // import axios from 'axios';
 import axiosInstance from '../utils/axiosInstance';
-import { ServerUrl } from '../App';
+// import { ServerUrl } from '../App';
+import { ServerUrl } from '../utils/config'
 import { useDispatch } from 'react-redux';
 import { setUserData } from '../redux/userSlice';
 function Pricing() {

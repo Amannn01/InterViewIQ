@@ -10,7 +10,8 @@ import {
 import { useState } from 'react';
 // import axios from "axios"
 import axiosInstance from '../utils/axiosInstance';
-import { ServerUrl } from '../App';
+// import { ServerUrl } from '../App';
+import { ServerUrl } from '../utils/config'
 import { useDispatch, useSelector } from 'react-redux';
 import { setUserData } from '../redux/userSlice';
 function Step1SetUp({ onStart }) {

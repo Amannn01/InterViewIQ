@@ -7,7 +7,8 @@ import { signInWithPopup } from 'firebase/auth';
 import { auth, provider } from '../utils/firebase';
 // import axios from 'axios';
 import axiosInstance from '../utils/axiosInstance';
-import { ServerUrl } from '../App';
+// import { ServerUrl } from '../App';
+import { ServerUrl } from '../utils/config'
 import { useDispatch } from 'react-redux';
 import { setUserData } from '../redux/userSlice';
 function Auth({isModel = false}) {

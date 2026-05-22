@@ -9,7 +9,8 @@ import { useRef } from 'react'
 import { useEffect } from 'react'
 // import axios from "axios"
 import axiosInstance from '../utils/axiosInstance';
-import { ServerUrl } from '../App'
+// import { ServerUrl } from '../App'
+import { ServerUrl } from '../utils/config'
 import { BsArrowRight } from 'react-icons/bs'
 
 function Step2Interview({ interviewData, onFinish }) {

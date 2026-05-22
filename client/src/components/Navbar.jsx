@@ -7,7 +7,8 @@ import { FaUserAstronaut } from "react-icons/fa";
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../utils/axiosInstance';;
-import { ServerUrl } from '../App';
+// import { ServerUrl } from '../App';
+import { ServerUrl } from '../utils/config'
 import { setUserData } from '../redux/userSlice';
 import AuthModel from './AuthModel';
 function Navbar() {

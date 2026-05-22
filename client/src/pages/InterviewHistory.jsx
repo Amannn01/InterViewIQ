@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 // import axios from "axios"
 import axiosInstance from '../utils/axiosInstance';
-import { ServerUrl } from '../App'
+// import { ServerUrl } from '../App'
+import { ServerUrl } from '../utils/config'
 import { FaArrowLeft } from 'react-icons/fa'
 function InterviewHistory() {
     const [interviews, setInterviews] = useState([])
