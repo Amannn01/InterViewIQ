@@ -3,15 +3,16 @@ import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import Auth from './pages/Auth'
 import { useEffect } from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { setUserData } from './redux/userSlice'
 import InterviewPage from './pages/InterviewPage'
 import InterviewHistory from './pages/InterviewHistory'
 import Pricing from './pages/Pricing'
 import InterviewReport from './pages/InterviewReport'
-
-export const ServerUrl = "https://interviewiq-backend-c0da.onrender.com"
+import { ServerUrl } from './utils/config'
+import axiosInstance from './utils/axiosInstance'
+export { ServerUrl }
 
 function App() {
 
@@ -21,7 +22,7 @@ function App() {
       try {
         const token = localStorage.getItem("token")
         if (!token) return
-        const result = await axios.get(ServerUrl + "/api/user/current-user", { withCredentials: true })
+        const result = await axiosInstance.get(ServerUrl + "/api/user/current-user", { withCredentials: true })
         dispatch(setUserData(result.data))
       } catch (error) {
         console.log(error)

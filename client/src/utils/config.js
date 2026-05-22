@@ -1,0 +1,1 @@
+export const ServerUrl = "https://interviewiq-backend-c0da.onrender.com"

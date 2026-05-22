@@ -1,5 +1,6 @@
 import axios from "axios"
-import { ServerUrl } from "../App"
+// import { ServerUrl } from "../App"
+import { ServerUrl } from "./config"
 
 const axiosInstance = axios.create({
     baseURL: ServerUrl
