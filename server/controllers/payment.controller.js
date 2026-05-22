@@ -31,7 +31,10 @@ export const createOrder = async (req,res) => {
 
     
     } catch (error) {
-         return res.status(500).json({message:`failed to create Razorpay order` , error: error.message})
+         console.error("Razorpay error:", JSON.stringify(error))
+        return res.status(500).json({
+            message: 'failed to create Razorpay order',
+            error: error?.message || JSON.stringify(error) })
     }
 }
 
@@ -82,6 +85,9 @@ export const verifyPayment = async (req,res) => {
     });
 
     } catch (error) {
-         return res.status(500).json({message:`failed to verify Razorpay payment` , error: error.message})
+         console.error("Razorpay error:", JSON.stringify(error))
+        return res.status(500).json({
+            message: 'failed to verify Razorpay payment',
+            error: error?.message || JSON.stringify(error) })
     }
 }
