@@ -66,7 +66,10 @@ function Step1SetUp({ onStart }) {
            onStart(result.data)
 
         } catch (error) {
-              console.log(error.response?.data)
+            console.log("STATUS:", error.response?.status)
+    console.log("DATA:", JSON.stringify(error.response?.data))
+    console.log("MESSAGE:", error.message)
+            //   console.log(error.response?.data)
             setLoading(false)
         }
     }
